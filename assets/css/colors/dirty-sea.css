@@ -1,0 +1,36 @@
+/* Dirty Sea by Kahlil (Kal) Hodgson */
+
+:root {
+    --content-primary: rgb(0, 0, 0);
+    --content-secondary: rgb(32, 32, 32);
+    --background: rgb(224, 224, 224);
+    --code-background: rgb(208, 218, 208);
+    --code-border: rgb(0, 115, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --content-primary: rgb(224, 224, 224);
+    --content-secondary: rgb(196, 217, 196);
+    --background: rgb(24, 24, 24);
+    --code-background: rgb(0, 0, 0);
+    --code-border: rgb(0, 101, 101);
+    }
+}
+
+/* Explicit theme override */
+:root[data-theme="light"] {
+    --content-primary: rgb(0, 0, 0);
+    --content-secondary: rgb(32, 32, 32);
+    --background: rgb(224, 224, 224);
+    --code-background: rgb(208, 218, 208);
+    --code-border: rgb(0, 115, 0);
+}
+
+:root[data-theme="dark"] {
+    --content-primary: rgb(224, 224, 224);
+    --content-secondary: rgb(196, 217, 196);
+    --background: rgb(24, 24, 24);
+    --code-background: rgb(0, 0, 0);
+    --code-border: rgb(0, 101, 101);
+}

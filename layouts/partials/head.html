@@ -12,9 +12,22 @@
 <link rel="icon" type="image/png" sizes="192x192" href="{{ urls.JoinPath $faviconPath "android-chrome-192x192.png" }}">
 <link rel="apple-touch-icon" sizes="180x180" href="{{ urls.JoinPath $faviconPath "apple-touch-icon.png" }}">
 
-{{ with .OutputFormats.Get "rss" -}}
-{{ printf `<link rel=%q type=%q href=%q title=%q>` .Rel .MediaType.Type .Permalink site.Title | safeHTML }}
-{{ end }}
+{{- define "outputFormats" -}}
+  {{- range .OutputFormats }}
+    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{- end }}
+{{- end -}}
+
+{{ if .IsHome -}}
+  {{ with .Site.GetPage (site.Params.homeCollection | default "") -}}
+    {{ template "outputFormats" . }}
+  {{ end }}
+{{ else -}}
+  {{ template "outputFormats" . }}
+  {{ with .Parent -}}
+    {{ template "outputFormats" . }}
+  {{- end }}
+{{- end }}
 
 {{- if .IsHome -}}
 <meta name="description" content="{{ site.Params.Description }}"/>

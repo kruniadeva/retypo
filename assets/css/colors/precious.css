@@ -1,0 +1,36 @@
+/* Precious Light Warm and Precious Dark Fifteen by 4lex4 */
+
+:root {
+    --content-primary: rgb(10, 10, 10);
+    --content-secondary: rgb(80, 80, 81);
+    --background: rgb(236, 228, 214);
+    --code-background: rgb(217, 211, 200);
+    --code-border: rgb(122, 80, 198);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([data-theme="dark"]) {
+    --content-primary: rgb(186, 185, 182);
+    --content-secondary: rgb(196, 217, 196);
+    --background: rgb(35, 38, 43);
+    --code-background: rgb(48, 51, 55);
+    --code-border: rgb(255, 135, 130);
+    }
+}
+
+/* Explicit theme override */
+:root[data-theme="light"] {
+    --content-primary: rgb(0, 0, 0);
+    --content-secondary: rgb(32, 32, 32);
+    --background: rgb(224, 224, 224);
+    --code-background: rgb(208, 218, 208);
+    --code-border: rgb(0, 115, 0);
+}
+
+:root[data-theme="dark"] {
+    --content-primary: rgb(224, 224, 224);
+    --content-secondary: rgb(196, 217, 196);
+    --background: rgb(24, 24, 24);
+    --code-background: rgb(0, 0, 0);
+    --code-border: rgb(0, 101, 101);
+}

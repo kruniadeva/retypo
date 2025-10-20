@@ -1,0 +1,21 @@
+{{ if .Params.series }}
+  {{ $seriesName := index .Params.series 0 }}
+  <div>
+    Tulisan ini adalah bagian dari seri {{ $seriesName }}.
+    <ul class="list-group">
+      {{ range $num,$post := (index .Site.Taxonomies.series (urlize $seriesName)).Pages.ByDate }}
+        {{ if eq $post.Permalink $.Page.Permalink }}
+          <li class="list-group-item active">
+            Bagian {{ add $num 1 }}: Kamu ada di sini.
+          </li>
+        {{ else }}
+          <li class="list-group-item">
+            <a href="{{ $post.Permalink }}">
+              Bagian {{ add $num 1 }}: {{ $post.Params.title }}
+            </a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+  </div>
+{{ end }}

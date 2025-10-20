@@ -1,8 +1,10 @@
+{{ .Page.Scratch.Set "sidenoteCounter" 0 }}
 <!DOCTYPE html>
 <html lang="{{ or site.Language.LanguageCode site.Language.Lang }}"
-  dir="{{ or site.Language.LanguageDirection `ltr` }}">
+  dir="{{ or site.Language.LanguageDirection `ltr` }}"
+  data-theme='{{ .Site.Params.theme | default "auto" }}'>
 
-<head>
+  <head>
   {{ partial "head.html" . }}
 </head>
 
@@ -13,7 +15,6 @@
 {{ end }}
 
 <body class="{{ $theme }}">
-
   <div class="content">
     <header>
       {{ partial "header.html" . }}
@@ -35,7 +36,4 @@
   {{ partialCached "math.html" . }}
   {{ end }}
 </body>
-
-<script src="{{ "js/theme-switch.js" | relURL }}"></script>
-<script defer src="{{ "js/copy-code.js" | relURL }}"></script>
 </html>

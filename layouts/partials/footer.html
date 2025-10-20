@@ -2,13 +2,8 @@
 {{ if $showFooter }}
     {{/* Footer start hook */}}
     {{ partial "functions/get_hook.html" (dict "hook" "footer_start" "context" .) }}
-
+    <p>&copy; {{ now.Year }}&nbsp;Karunia Deva</p>
     {{ if not .Site.Params.footerContent }}
-    <p>Powered by
-        <a href="https://gohugo.io/">Hugo</a>
-        and
-        <a href="https://github.com/tomfran/typo">tomfran/typo</a>
-    </p>
     {{ end }}
     
     {{ with .Site.Params.footerContent }}

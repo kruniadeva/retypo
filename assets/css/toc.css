@@ -1,0 +1,61 @@
+.toc-float {
+    position: fixed;
+    top: 100px;
+    left: 24px;
+    width: 220px;
+    max-width: 80vw;
+    height: auto;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: rgba(255,255,255,0); /* Fully transparent by default */
+    transition: background 0.3s, box-shadow 0.3s, opacity 0.3s;
+    z-index: 999;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0); /* No shadow when transparent */
+    padding: 16px 8px 16px 20px;
+    font-size: 80%;
+    opacity: 0.2; /* Almost invisible */
+    pointer-events: auto;
+}
+
+.toc-float a {
+    text-decoration: none;
+    font-weight: normal;
+    transition: font-weight 0.2s;
+}
+
+.toc-float a:hover {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.toc-float:hover,
+.toc-float:focus-within {
+    background: $global-font-secondary-color; /* Opaque on hover */
+    box-shadow: 4px 0 12px rgba(0,0,0,0.08);
+    opacity: 1;
+}
+
+.toc-title {
+    font-weight: bold;
+    margin-bottom: 12px;
+    font-size: 1.2em;
+}
+.toc-content {
+    font-size: 1em;
+}
+
+.toc-content ul,
+.toc-content ol {
+    list-style: disc; /* Removes bullet points or numbers */
+    padding: 0; /* Removes default left padding from lists */
+    margin: 0;
+}
+
+.toc-content li {
+    margin-bottom: 0em; /* Adjust as needed for spacing between items */
+}
+
+@media (max-width: 1000px) {
+    .toc-float { display: none; }
+}

@@ -47,10 +47,6 @@
     /* Code */
     --code-padding: 1.5rem;
     --code-border-radius: 10px;
-    --copy-code-button-border-radius: 7px;
-
-    /* Social section */
-    --social-icons-bottom-margin: 3rem;
 
     /* Footer */
     --footer-height: 3rem;
@@ -76,7 +72,6 @@
 @media screen and (max-width: 640px) {
     :root {
         --header-top-gap: 1rem;
-        --social-icons-bottom-margin: 0rem;
         --caption-padding: calc(2 * var(--main-padding));
     }
 }

@@ -1,0 +1,6 @@
+{{/* Get and increment a page-scoped counter */}}
+{{ .Page.Scratch.Add "sidenoteCounter" 1 }}
+{{ $sidenoteCounter := .Page.Scratch.Get "sidenoteCounter" }}
+
+{{/* Output the superscript callout number in the text */}}
+<sup id="sidenote-ref-{{ $sidenoteCounter }}" class="sidenote-number">{{ $sidenoteCounter }}</sup><span class="sidenote" id="sidenote-{{ $sidenoteCounter }}"><small>{{ $sidenoteCounter }}. {{ .Inner | .Page.RenderString }}</small></span>
